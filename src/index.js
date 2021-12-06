@@ -1,17 +1,27 @@
-import  Express  from "express"
-import { connectDB  } from "*/config/mongodb"
+import  express  from "express"
+import { connectDB } from "*/config/mongodb"
 import { env } from "*/config/environment"
+import { apiV1 } from '*/routes/V1'
 
-import { mapOrder } from "*/utilities/sorts.js"
 
-const app = Express()
+connectDB()
+  .then(() => console.log('Connected successfully!'))
+  .then(() => bootServer())
+  .catch(error => {
+    console.error(error)
+    process.exit(1)
+  })
 
-connectDB().catch(console.log)
+const bootServer = () => {
+  const app = express()
 
-app.get('/', (req, res) => {
-  res.end('hello world tôi là bảnh')
-})
+  // Enable req.body
+  app.use(express.json())
 
-app.listen(env.PORT, env.HOST, () => {
-  console.log(`tôi là bảnh ${env.HOST}:${env.PORT}`)
-})
+  // use APIS
+  app.use('/v1', apiV1)
+  
+  app.listen(env.APP_PORT, env.APP_HOST, () => {
+    console.log(`toi la banh ${env.APP_HOST}:${env.APP_PORT}`)
+  })
+}
