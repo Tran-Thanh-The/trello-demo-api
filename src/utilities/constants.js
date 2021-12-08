@@ -6,4 +6,4 @@ export const HttpStatusCode = {
   INTERNAL_SERVER: 500
 }
 
-export const WHITELIST = ['http://localhost:3000', 'http://localhost:3001']
+export const WHITELIST = ['http://localhost:3000', 'https://trello-thedb.web.app']
