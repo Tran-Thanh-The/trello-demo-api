@@ -5,3 +5,5 @@ export const HttpStatusCode = {
   UNAUTHORIZED: 401,
   INTERNAL_SERVER: 500
 }
+
+export const WHITELIST = ['http://localhost:3000', 'http://localhost:3001']
