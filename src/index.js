@@ -3,7 +3,7 @@ import cors from 'cors'
 import { corsOptions } from "./config/cors"
 import { connectDB } from "*/config/mongodb"
 // import { env } from "*/config/environment"
-import { apiV1 } from '*/routes/V1'
+import { apiV1 } from '*/routes/v1'
 
 
 connectDB()
